@@ -1,0 +1,21 @@
+{
+    "common": {
+        "title": "Chemical calculator",
+        "header": {
+            "links": {
+                "main": "Main",
+                "calculator": "Calculator"
+            }
+        }
+    },
+    "home": {
+        "title": "The best chemical calculator",
+        "description": "No doubts",
+        "info": "Basic info"
+    },
+    "calculator": {
+        "title": "Calculator",
+        "submit-button": "Submit"
+    },
+    "test": "{{name}}, Hi!"
+}
