@@ -9,7 +9,7 @@ import './i18n'
 
 createRoot(document.getElementById('root')).render(
     <Theme appearance="dark">
-        <BrowserRouter>
+        <BrowserRouter basename="/chem">
             <App />
         </BrowserRouter>
     </Theme>,

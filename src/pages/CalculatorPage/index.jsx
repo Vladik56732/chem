@@ -19,7 +19,7 @@ export const CalculatorPage = () => {
         setLoading(true)
 
         console.log('запрос')
-        fetch('http://146.103.106.10:3000/', {
+        fetch('https://ai.koroden.ru', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
