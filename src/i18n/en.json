@@ -4,7 +4,8 @@
         "header": {
             "links": {
                 "main": "Main",
-                "calculator": "Calculator"
+                "calculator": "Calculator",
+                "table": "Periodic Table"
             }
         }
     },
