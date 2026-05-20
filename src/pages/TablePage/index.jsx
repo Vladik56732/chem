@@ -1,34 +1,41 @@
+import { Dialog } from '@radix-ui/themes'
 import image from './image.png'
 import tableData from './table.json'
+import styles from './style.module.css'
+import { ElementCard } from './ElementCard'
+
+function mapElementsToTable(elements) {
+    let arr = Array.from({ length: 10 }, () => Array(18).fill(null))
+
+    elements.forEach(element => {
+        if (element.atomic_number > 57 && element.atomic_number < 72) {
+            arr[7][element.atomic_number - 55] = element
+        } else if (element.atomic_number > 89 && element.atomic_number < 104) {
+            arr[8][element.atomic_number - 87] = element
+        } else {
+            arr[element.period_number - 1][element.group_number - 1] = element
+        }
+    })
+
+    return arr
+}
 
 export const TablePage = () => {
     console.log(tableData)
+    const grid = mapElementsToTable(tableData)
 
-    const table = []
-    let tableRow = []
-    let groupNumber = 1
-    tableData.forEach(({ symbol, period_number }) => {
-        if (period_number != groupNumber) {
-            console.log(groupNumber)
-            table.push(tableRow)
-            tableRow = []
-            groupNumber++
-        }
-
-        tableRow.push(<td>{symbol}</td>)
-    })
-    console.log(table)
     return (
-        <>
-            {/* <img src={image} alt="" width="80%" /> */}
-            <table border="1px">
-                <thead>Periodic Table</thead>
-                <tbody>
-                    {table.map(row => {
-                        return <tr>{row}</tr>
-                    })}
-                </tbody>
-            </table>
-        </>
+        <div className={styles.table}>
+            {grid.map((row, rowIndex) =>
+                row.map((cell, colIndex) => (
+                    <div
+                        key={`${rowIndex}-${colIndex}`}
+                        className={styles.cell}
+                    >
+                        {cell && <ElementCard element={cell} />}
+                    </div>
+                )),
+            )}
+        </div>
     )
 }
