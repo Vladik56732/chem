@@ -14,7 +14,7 @@ import {
 import { useTranslation } from 'react-i18next'
 
 import { ResultBlock } from './ResultBlock'
-import { TextField } from './TextField'
+import { TextField } from '../../components/TextField'
 
 export const CalculatorPage = () => {
     const { t, i18n } = useTranslation()

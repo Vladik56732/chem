@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router'
 import { HomePage } from './pages/HomePage'
 import { CalculatorPage } from './pages/CalculatorPage'
+import { ConverterPage } from './pages/ConverterPage'
 import { TablePage } from './pages/TablePage'
 import { BaseLayout } from './layout/BaseLayout'
 
@@ -10,6 +11,7 @@ export const App = () => {
             <Route element={<BaseLayout />}>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/calculator" element={<CalculatorPage />} />
+                <Route path="/converter" element={<ConverterPage />} />
                 <Route path="/table" element={<TablePage />} />
             </Route>
         </Routes>

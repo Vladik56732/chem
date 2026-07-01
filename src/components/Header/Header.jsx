@@ -6,7 +6,6 @@ import style from './style.module.css'
 
 export const Header = () => {
     const { t, i18n } = useTranslation()
-    console.log(navigator)
 
     return (
         <div className={style.header}>
@@ -18,11 +17,15 @@ export const Header = () => {
                 <Link to="/calculator">
                     <Text size="4">{t('common.header.links.calculator')}</Text>
                 </Link>
+
+                <Link to="/converter">
+                    <Text size="4">{t('common.header.links.converter')}</Text>
+                </Link>
+
                 <Link to="/table">
                     <Text size="4">{t('common.header.links.table')}</Text>
                 </Link>
             </div>
-            {/* <div>{t('test', { name: 'Vladimir' })}</div> */}
             <div className={style.languages}>
                 <Button
                     disabled={i18n.resolvedLanguage == 'ru'}

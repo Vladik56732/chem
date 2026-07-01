@@ -36,7 +36,7 @@ export const ElementCard = ({ element }) => {
         <HoverCard.Root>
             <HoverCard.Trigger>
                 <div
-                    // className={styles.element}
+                    className={styles.element}
                     style={{ backgroundColor: getColorByType(element.type) }}
                 >
                     <b>{element.atomic_number}</b>
