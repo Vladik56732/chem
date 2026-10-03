@@ -14,86 +14,88 @@ import {
 } from '@radix-ui/themes'
 
 import image from './oil.webp'
+import style from './style.module.css'
+
+const LEARN_ITEMS = [
+    'organic',
+    'inorganic',
+    'physical',
+    'experiments',
+    'exams',
+    'facts',
+]
+
+const EVERYDAY_ITEMS = ['gasoline', 'soap', 'soda', 'rust']
+
+const STATS = [
+    { value: '50+', key: 'topics' },
+    { value: '100+', key: 'reactions' },
+    { value: '∞', key: 'interest' },
+]
 
 export const HomePage = () => {
     const { t } = useTranslation()
 
     return (
-        <Box
-            style={{
-                background:
-                    'radial-gradient(circle at 20% 0%, var(--accent-3), transparent 40%)',
-            }}
-        >
-            <Container size="4" py="8">
-                <Flex direction="column" gap="9">
-                    {/* HERO */}
-                    <Flex align="center" justify="between" gap="8" wrap="wrap">
-                        <Box style={{ flex: '1 1 420px' }}>
+        <Box className={style.page}>
+            <Container className={style.content} size="4" py={{ initial: '5', md: '8' }}>
+                <Flex direction="column" gap={{ initial: '6', md: '9' }}>
+                    <Flex align="center" justify="between" gap={{ initial: '5', md: '8' }} wrap="wrap">
+                        <Box className={style.heroMedia}>
                             <AspectRatio ratio={16 / 9}>
                                 <img
                                     src={image}
-                                    alt="chemistry"
-                                    style={{
-                                        objectFit: 'cover',
-                                        width: '100%',
-                                        height: '100%',
-                                        borderRadius: 'var(--radius-3)',
-                                        boxShadow:
-                                            '0 20px 60px rgba(0,0,0,0.25)',
-                                    }}
+                                    alt={t('home.image-alt')}
+                                    className={style.heroImage}
                                 />
                             </AspectRatio>
                         </Box>
 
-                        <Box style={{ flex: '1 1 380px' }}>
-                            <Heading size="9" mb="4">
+                        <Box className={style.heroCopy}>
+                            <Heading size={{ initial: '7', sm: '8', md: '9' }} mb="4">
                                 {t('home.header.title')}
                             </Heading>
 
-                            <Blockquote size="5" mb="5">
-                                Понимание химии — это умение управлять материей.
+                            <Blockquote size={{ initial: '3', sm: '5' }} mb="5">
+                                {t('home.quote')}
                             </Blockquote>
 
-                            <Text size="4" color="gray" mb="6">
-                                От атомов до космических технологий. Изучай
-                                реакции, вещества и открывай мир науки.
+                            <Text size={{ initial: '3', sm: '4' }} color="gray" mb="6">
+                                {t('home.subtitle')}
                             </Text>
 
-                            <Flex gap="4" mt="3">
-                                <Button size="4">Начать изучение</Button>
-
-                                <Button size="4" variant="soft">
-                                    Смотреть эксперименты
+                            <Grid columns={{ initial: '1', xs: '2' }} gap="3" mt="3">
+                                <Button className={style.stretch} size={{ initial: '3', sm: '4' }}>
+                                    {t('home.start')}
                                 </Button>
-                            </Flex>
+
+                                <Button
+                                    className={style.stretch}
+                                    size={{ initial: '3', sm: '4' }}
+                                    variant="soft"
+                                >
+                                    {t('home.watch-experiments')}
+                                </Button>
+                            </Grid>
                         </Box>
                     </Flex>
 
                     <Separator size="4" />
 
-                    {/* STATS */}
-                    <Grid columns="3" gap="6">
-                        <Card size="3">
-                            <Heading size="6">50+</Heading>
-                            <Text color="gray">Тем химии</Text>
-                        </Card>
-
-                        <Card size="3">
-                            <Heading size="6">100+</Heading>
-                            <Text color="gray">Реакций</Text>
-                        </Card>
-
-                        <Card size="3">
-                            <Heading size="6">∞</Heading>
-                            <Text color="gray">Интереса к науке</Text>
-                        </Card>
+                    <Grid columns={{ initial: '1', xs: '3' }} gap={{ initial: '3', sm: '6' }}>
+                        {STATS.map(item => (
+                            <Card key={item.key} size="3">
+                                <Heading size="6">{item.value}</Heading>
+                                <Text color="gray">
+                                    {t(`home.stats.${item.key}`)}
+                                </Text>
+                            </Card>
+                        ))}
                     </Grid>
 
-                    {/* FEATURES */}
                     <Box>
-                        <Heading size="7" mb="6">
-                            Что можно изучить
+                        <Heading size={{ initial: '5', sm: '7' }} mb="6">
+                            {t('home.learn.title')}
                         </Heading>
 
                         <Grid
@@ -102,107 +104,64 @@ export const HomePage = () => {
                                 sm: '2',
                                 lg: '3',
                             }}
-                            gap="6"
+                            gap={{ initial: '3', sm: '6' }}
                         >
-                            {[
-                                {
-                                    title: 'Органическая химия',
-                                    text: 'Соединения углерода и основы жизни',
-                                },
-                                {
-                                    title: 'Неорганическая химия',
-                                    text: 'Металлы, соли и реакции',
-                                },
-                                {
-                                    title: 'Физическая химия',
-                                    text: 'Энергия и скорость реакций',
-                                },
-                                {
-                                    title: 'Эксперименты',
-                                    text: 'Визуальные демонстрации',
-                                },
-                                {
-                                    title: 'Подготовка к экзаменам',
-                                    text: 'Структурированные темы',
-                                },
-                                {
-                                    title: 'Интересные факты',
-                                    text: 'Химия вокруг нас',
-                                },
-                            ].map(item => (
+                            {LEARN_ITEMS.map(item => (
                                 <Card
-                                    key={item.title}
+                                    key={item}
                                     size="3"
-                                    style={{
-                                        transition: 'all .2s ease',
-                                        cursor: 'pointer',
-                                    }}
-                                    className="chem-card"
+                                    className={style.card}
                                 >
                                     <Heading size="4" mb="2">
-                                        {item.title}
+                                        {t(`home.learn.${item}.title`)}
                                     </Heading>
-                                    <Text color="gray">{item.text}</Text>
+                                    <Text color="gray">
+                                        {t(`home.learn.${item}.text`)}
+                                    </Text>
                                 </Card>
                             ))}
                         </Grid>
                     </Box>
 
-                    {/* EVERYDAY CHEMISTRY */}
                     <Box>
-                        <Heading size="7" mb="6">
-                            Химия вокруг нас
+                        <Heading size={{ initial: '5', sm: '7' }} mb="6">
+                            {t('home.everyday.title')}
                         </Heading>
 
-                        <Grid columns={{ initial: '1', sm: '2' }} gap="6">
-                            {[
-                                'Почему бензин горит',
-                                'Почему мыло моет',
-                                'Почему сода пузырится',
-                                'Почему железо ржавеет',
-                            ].map(title => (
-                                <Card
-                                    key={title}
-                                    size="3"
-                                    style={{
-                                        transition: 'all .2s ease',
-                                    }}
-                                >
-                                    <Heading size="4">{title}</Heading>
+                        <Grid columns={{ initial: '1', sm: '2' }} gap={{ initial: '3', sm: '6' }}>
+                            {EVERYDAY_ITEMS.map(item => (
+                                <Card key={item} size="3">
+                                    <Heading size="4">
+                                        {t(`home.everyday.${item}`)}
+                                    </Heading>
                                 </Card>
                             ))}
                         </Grid>
                     </Box>
 
-                    {/* CTA */}
-                    <Card size="4">
+                    <Card size={{ initial: '2', sm: '4' }}>
                         <Flex
-                            align="center"
+                            align={{ initial: 'stretch', sm: 'center' }}
                             justify="between"
-                            wrap="wrap"
+                            direction={{ initial: 'column', sm: 'row' }}
                             gap="4"
                         >
-                            <Box>
-                                <Heading size="6" mb="2">
-                                    Готов начать изучать химию?
+                            <Box style={{ minWidth: 0 }}>
+                                <Heading size={{ initial: '5', sm: '6' }} mb="2">
+                                    {t('home.cta.title')}
                                 </Heading>
                                 <Text color="gray">
-                                    Перейди к интерактивным урокам
+                                    {t('home.cta.description')}
                                 </Text>
                             </Box>
 
-                            <Button size="4">Открыть уроки</Button>
+                            <Button className={style.ctaButton} size={{ initial: '3', sm: '4' }}>
+                                {t('home.cta.button')}
+                            </Button>
                         </Flex>
                     </Card>
                 </Flex>
             </Container>
-
-            <style jsx>{`
-                .chem-card:hover {
-                    transform: translateY(-6px);
-                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-                }
-            `}</style>
         </Box>
     )
 }

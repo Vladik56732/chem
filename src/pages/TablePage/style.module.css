@@ -1,19 +1,97 @@
+.wrapper {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.hint {
+    display: none;
+    margin: 0 0 var(--space-3);
+    text-align: center;
+    color: var(--gray-11);
+    font-size: var(--font-size-2);
+    line-height: 1.4;
+}
+
+.scroll {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    container-type: inline-size;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    padding-bottom: var(--space-2);
+}
+
 .table {
+    --gap: 4px;
+    --cell: 60px;
     display: grid;
-    grid-template-columns: repeat(18, 60px);
-    grid-template-rows: repeat(10, 60px);
-    gap: 4px;
+    grid-template-columns: repeat(18, var(--cell));
+    grid-template-rows: repeat(10, var(--cell));
+    gap: var(--gap);
+    width: max-content;
+    margin-inline: auto;
+}
+
+@supports (width: 1cqi) {
+    .table {
+        --gap: clamp(2px, 0.4cqi, 4px);
+        --cell: clamp(44px, calc((100cqi - 17 * var(--gap)) / 18), 60px);
+    }
 }
 
 .cell {
-    width: 60px;
-    height: 60px;
+    width: var(--cell);
+    height: var(--cell);
+    min-width: 0;
+    min-height: 0;
 }
 
 .element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
     width: 100%;
     height: 100%;
+    margin: 0;
+    padding: 2px;
     border: 1px solid #aaa;
     border-radius: 4px;
-    padding: 3px;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.element b {
+    font-size: calc(var(--cell) * 0.22);
+    font-weight: 700;
+}
+
+.element span {
+    font-size: calc(var(--cell) * 0.32);
+    font-weight: 700;
+}
+
+.element:focus-visible {
+    outline: 2px solid var(--accent-9);
+    outline-offset: 1px;
+}
+
+@media (max-width: 900px) {
+    .hint {
+        display: block;
+    }
+
+    .scroll {
+        width: calc(100% + 2 * var(--page-pad-x));
+        margin-inline: calc(-1 * var(--page-pad-x));
+        padding-inline: var(--page-pad-x);
+        scroll-padding-inline: var(--page-pad-x);
+    }
 }

@@ -1,0 +1,19 @@
+.tabs {
+    width: 100%;
+    min-width: 0;
+}
+
+.tabs :global(.rt-TabsList) {
+    max-width: 100%;
+}
+
+.row {
+    width: 100%;
+    min-width: 0;
+}
+
+@media (max-width: 640px) {
+    .tabs :global(.rt-TabsTrigger) {
+        flex: 1 1 0;
+    }
+}

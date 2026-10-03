@@ -1,5 +1,5 @@
-import { Dialog } from '@radix-ui/themes'
-import image from './image.png'
+import { useTranslation } from 'react-i18next'
+
 import tableData from './table.json'
 import styles from './style.module.css'
 import { ElementCard } from './ElementCard'
@@ -21,21 +21,26 @@ function mapElementsToTable(elements) {
 }
 
 export const TablePage = () => {
-    console.log(tableData)
+    const { t } = useTranslation()
     const grid = mapElementsToTable(tableData)
 
     return (
-        <div className={styles.table}>
-            {grid.map((row, rowIndex) =>
-                row.map((cell, colIndex) => (
-                    <div
-                        key={`${rowIndex}-${colIndex}`}
-                        className={styles.cell}
-                    >
-                        {cell && <ElementCard element={cell} />}
-                    </div>
-                )),
-            )}
+        <div className={styles.wrapper}>
+            <p className={styles.hint}>{t('table.scroll-hint')}</p>
+            <div className={styles.scroll}>
+                <div className={styles.table}>
+                    {grid.map((row, rowIndex) =>
+                        row.map((cell, colIndex) => (
+                            <div
+                                key={`${rowIndex}-${colIndex}`}
+                                className={styles.cell}
+                            >
+                                {cell && <ElementCard element={cell} />}
+                            </div>
+                        )),
+                    )}
+                </div>
+            </div>
         </div>
     )
 }

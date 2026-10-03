@@ -3,3 +3,45 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.radix-themes {
+    --page-pad-y: var(--space-4);
+    --page-pad-x: max(
+        var(--space-4),
+        env(safe-area-inset-left),
+        env(safe-area-inset-right)
+    );
+}
+
+html,
+body,
+#root {
+    max-width: 100%;
+}
+
+html,
+body {
+    overflow-x: clip;
+}
+
+#root {
+    min-height: 100dvh;
+}
+
+img {
+    max-width: 100%;
+}
+
+.rt-TextFieldRoot {
+    max-width: 100%;
+    min-width: 0;
+}
+
+.rt-TextFieldInput {
+    min-width: 0;
+}
+
+[data-radix-popper-content-wrapper] {
+    z-index: 50;
+}
+

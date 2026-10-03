@@ -1,14 +1,16 @@
 import { Outlet } from 'react-router'
 import { Header } from '../components/Header'
-import { Flex } from '@radix-ui/themes'
+import { Box, Flex } from '@radix-ui/themes'
+
+import style from './style.module.css'
 
 export const BaseLayout = () => {
     return (
-        <Flex direction={'column'}>
+        <Flex direction="column" className={style.shell}>
             <Header />
-            <Flex justify={'center'} style={{ padding: 'var(--space-4)' }}>
+            <Box className={style.main}>
                 <Outlet />
-            </Flex>
+            </Box>
         </Flex>
     )
 }

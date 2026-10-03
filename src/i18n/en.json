@@ -2,9 +2,12 @@
     "common": {
         "title": "Chemical calculator",
         "header": {
+            "menu": "Menu",
+            "close-menu": "Close menu",
             "links": {
                 "main": "Main",
                 "calculator": "Calculator",
+                "converter": "Converter",
                 "table": "Periodic Table"
             }
         }
@@ -12,11 +15,82 @@
     "home": {
         "title": "The best chemical calculator",
         "description": "No doubts",
-        "info": "Basic info"
+        "info": "Basic info",
+        "image-alt": "Chemistry",
+        "header": {
+            "title": "Chemistry — the language of matter"
+        },
+        "quote": "Understanding chemistry means knowing how to control matter.",
+        "subtitle": "From atoms to space technology. Study reactions and substances, and discover the world of science.",
+        "start": "Start learning",
+        "watch-experiments": "Watch experiments",
+        "stats": {
+            "topics": "Chemistry topics",
+            "reactions": "Reactions",
+            "interest": "Interest in science"
+        },
+        "learn": {
+            "title": "What you can study",
+            "organic": {
+                "title": "Organic chemistry",
+                "text": "Carbon compounds and the basis of life"
+            },
+            "inorganic": {
+                "title": "Inorganic chemistry",
+                "text": "Metals, salts, and reactions"
+            },
+            "physical": {
+                "title": "Physical chemistry",
+                "text": "Energy and reaction rates"
+            },
+            "experiments": {
+                "title": "Experiments",
+                "text": "Visual demonstrations"
+            },
+            "exams": {
+                "title": "Exam preparation",
+                "text": "Structured topics"
+            },
+            "facts": {
+                "title": "Interesting facts",
+                "text": "Chemistry around us"
+            }
+        },
+        "everyday": {
+            "title": "Chemistry around us",
+            "gasoline": "Why gasoline burns",
+            "soap": "Why soap cleans",
+            "soda": "Why baking soda fizzes",
+            "rust": "Why iron rusts"
+        },
+        "cta": {
+            "title": "Ready to start learning chemistry?",
+            "description": "Go to the interactive lessons",
+            "button": "Open lessons"
+        }
+    },
+    "converter": {
+        "title": "Converter",
+        "description": "Convert temperature and pressure units",
+        "tab": {
+            "temperature": "Temperature",
+            "pressure": "Pressure"
+        },
+        "documents": "Access and update your documents."
     },
     "calculator": {
         "title": "Calculator",
-        "submit-button": "Submit"
+        "badge": "AI Chemistry Tool",
+        "description": "Enter two formulas and get the reaction result, an explanation, or an analysis.",
+        "submit-button": "Submit",
+        "result": "Result",
+        "examples": "Examples"
+    },
+    "table": {
+        "scroll-hint": "Swipe sideways to see every element",
+        "element": {
+            "description": "{{name}} is the art and technique of arranging type to make written language legible, readable and appealing when displayed."
+        }
     },
     "test": "{{name}}, Hi!"
 }

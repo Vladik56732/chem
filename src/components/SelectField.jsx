@@ -5,11 +5,12 @@ export const SelectField = ({ options, defaultValue, value, setValue }) => {
         <Select.Root
             defaultValue={defaultValue}
             value={value}
+            size={{ initial: '3', sm: '2' }}
             onValueChange={value => {
                 setValue?.(value)
             }}
         >
-            <Select.Trigger />
+            <Select.Trigger style={{ flexShrink: 0, minWidth: '5.5rem' }} />
             <Select.Content>
                 {options.map(option => {
                     return (

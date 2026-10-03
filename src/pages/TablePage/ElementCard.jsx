@@ -1,6 +1,7 @@
-import { HoverCard } from 'radix-ui'
+import { useTranslation } from 'react-i18next'
+import { Popover, Text } from '@radix-ui/themes'
+
 import styles from './style.module.css'
-import { Strong, Text } from '@radix-ui/themes'
 
 const getColorByType = type => {
     switch (type) {
@@ -32,24 +33,26 @@ const getColorByType = type => {
 }
 
 export const ElementCard = ({ element }) => {
+    const { t } = useTranslation()
+
     return (
-        <HoverCard.Root>
-            <HoverCard.Trigger>
-                <div
+        <Popover.Root>
+            <Popover.Trigger>
+                <button
+                    type="button"
                     className={styles.element}
                     style={{ backgroundColor: getColorByType(element.type) }}
+                    aria-label={element.name}
                 >
                     <b>{element.atomic_number}</b>
-                    <p>{element.symbol}</p>
-                </div>
-            </HoverCard.Trigger>
-            <HoverCard.Content size="2" maxWidth="280px">
+                    <span>{element.symbol}</span>
+                </button>
+            </Popover.Trigger>
+            <Popover.Content size="2" maxWidth="280px">
                 <Text as="div" size="2" trim="both">
-                    <Strong>{element.name}</Strong> is the art and technique of
-                    arranging type to make written language legible, readable
-                    and appealing when displayed.
+                    {t('table.element.description', { name: element.name })}
                 </Text>
-            </HoverCard.Content>
-        </HoverCard.Root>
+            </Popover.Content>
+        </Popover.Root>
     )
 }

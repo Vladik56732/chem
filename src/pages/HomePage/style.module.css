@@ -1,0 +1,75 @@
+.content {
+    box-sizing: border-box;
+    padding-inline: var(--page-pad-x, 16px);
+}
+
+.page {
+    flex-shrink: 0;
+    width: calc(100% + 2 * var(--page-pad-x));
+    margin-top: calc(-1 * var(--page-pad-y));
+    margin-left: calc(-1 * var(--page-pad-x));
+    margin-right: calc(-1 * var(--page-pad-x));
+    background: radial-gradient(
+        circle at 20% 0%,
+        var(--accent-3),
+        transparent 40%
+    );
+}
+
+.heroMedia,
+.heroCopy {
+    flex: 1 1 280px;
+    min-width: 0;
+    max-width: 100%;
+}
+
+.heroCopy {
+    order: -1;
+}
+
+.heroImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.stretch {
+    width: 100%;
+}
+
+.ctaButton {
+    width: 100%;
+}
+
+.card {
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+@media (min-width: 1280px) {
+    .content {
+        padding-inline: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .heroCopy {
+        order: 0;
+    }
+
+    .ctaButton {
+        width: auto;
+        flex-shrink: 0;
+    }
+}
+
+@media (hover: hover) {
+    .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+}

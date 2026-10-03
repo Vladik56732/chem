@@ -43,26 +43,25 @@ export const CalculatorPage = () => {
     }
 
     return (
-        <Container size="2" py="8">
+        <Container size="2" py={{ initial: '4', md: '8' }}>
             <Flex direction="column" gap="6">
                 {/* HEADER */}
                 <Box>
                     <Badge size="3" mb="3">
-                        AI Chemistry Tool
+                        {t('calculator.badge')}
                     </Badge>
 
-                    <Heading size="8" mb="2">
+                    <Heading size={{ initial: '6', sm: '8' }} mb="2">
                         {t('calculator.title')}
                     </Heading>
 
-                    <Text color="gray" size="4">
-                        Введи две формулы и получи результат реакции, объяснение
-                        или анализ.
+                    <Text color="gray" size={{ initial: '3', sm: '4' }}>
+                        {t('calculator.description')}
                     </Text>
                 </Box>
 
                 {/* MAIN CARD */}
-                <Card size="4">
+                <Card size={{ initial: '2', sm: '4' }}>
                     <Flex direction="column" gap="5">
                         <Grid
                             columns={{ initial: '1', sm: '3' }}
@@ -75,7 +74,7 @@ export const CalculatorPage = () => {
                             />
 
                             <Flex justify="center">
-                                <Text size="7">+</Text>
+                                <Text size={{ initial: '5', sm: '7' }}>+</Text>
                             </Flex>
 
                             <TextField
@@ -84,7 +83,11 @@ export const CalculatorPage = () => {
                             />
                         </Grid>
 
-                        <Button size="4" loading={loading} onClick={onClick}>
+                        <Button
+                            size={{ initial: '3', sm: '4' }}
+                            loading={loading}
+                            onClick={onClick}
+                        >
                             {t('calculator.submit-button')}
                         </Button>
 
@@ -93,7 +96,7 @@ export const CalculatorPage = () => {
                                 <Separator size="4" />
                                 <Box>
                                     <Heading size="5" mb="3">
-                                        Результат
+                                        {t('calculator.result')}
                                     </Heading>
 
                                     <ResultBlock result={result} />
@@ -106,7 +109,7 @@ export const CalculatorPage = () => {
                 {/* EXAMPLES */}
                 <Card variant="soft">
                     <Heading size="5" mb="4">
-                        Примеры
+                        {t('calculator.examples')}
                     </Heading>
 
                     <Flex gap="3" wrap="wrap">

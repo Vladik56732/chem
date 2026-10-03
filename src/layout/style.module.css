@@ -1,0 +1,16 @@
+.shell {
+    min-height: 100dvh;
+    width: 100%;
+    max-width: 100%;
+}
+
+.main {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding-top: var(--page-pad-y);
+    padding-bottom: max(var(--page-pad-y), env(safe-area-inset-bottom));
+    padding-left: var(--page-pad-x);
+    padding-right: var(--page-pad-x);
+}
